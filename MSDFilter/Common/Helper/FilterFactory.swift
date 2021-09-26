@@ -9,11 +9,12 @@ import UIKit
 import GPUImage
 
 enum FilterType: Int {
+    case original
     case sepiaTone
     case sketch
     case monochrome
     case polkaDot
-    case vignette
+    case haze
 }
 
 class FilterFactory {
@@ -23,12 +24,15 @@ class FilterFactory {
         let image = UIImage(named: "mountains")!
         
         switch filter {
+        case .original:
+            return FilterItem(filterImage: image, filterName: "Original")
         case .sepiaTone:
             let sepiaToneFilter = SepiaToneFilter()
             let filteredImage = image.filterWithOperation(sepiaToneFilter)
             return FilterItem(filterImage: filteredImage, filterName: "SepiaTone")
         case .sketch:
             let sketchFilter = SketchFilter()
+            sketchFilter.edgeStrength = 12
             let filteredImage = image.filterWithOperation(sketchFilter)
             return FilterItem(filterImage: filteredImage, filterName: "Sketch")
         case .monochrome:
@@ -39,10 +43,10 @@ class FilterFactory {
             let polkaDotFilter = PolkaDot()
             let filteredImage = image.filterWithOperation(polkaDotFilter)
             return FilterItem(filterImage: filteredImage, filterName: "Polka Dot")
-        case .vignette:
-            let vignetteFilter = MonochromeFilter()
-            let filteredImage = image.filterWithOperation(vignetteFilter)
-            return FilterItem(filterImage: filteredImage, filterName: "Vignette")
+        case .haze:
+            let haze = Haze()
+            let filteredImage = image.filterWithOperation(haze)
+            return FilterItem(filterImage: filteredImage, filterName: "Haze")
         
         }
         

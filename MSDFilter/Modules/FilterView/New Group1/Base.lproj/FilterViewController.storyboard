@@ -17,48 +17,80 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountains" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-pa-eHo">
-                                <rect key="frame" x="0.0" y="244" width="414" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="jRg-nK-t7T"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="104" width="414" height="448"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4c-XS-QAs">
-                                <rect key="frame" x="50" y="543" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="applyFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UBE-rd-w5j"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raQ-b3-JSN">
-                                <rect key="frame" x="184" y="543" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg1-TA-QgL">
-                                <rect key="frame" x="318" y="543" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="20" y="44" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6q-xg-vI8" customClass="FilterScrollableView" customModule="MSDFilter" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="610" width="414" height="120"/>
+                                <rect key="frame" x="0.0" y="592" width="414" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="DCI-RU-Q3v"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6BH-nA-m12">
+                                <rect key="frame" x="0.0" y="552" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQb-qP-acy">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="40"/>
+                                        <state key="normal" title="Trendy"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a3w-r0-luS">
+                                        <rect key="frame" x="85" y="0.0" width="74.5" height="40"/>
+                                        <state key="normal" title="Color"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uci-9E-GBw">
+                                        <rect key="frame" x="169.5" y="0.0" width="75" height="40"/>
+                                        <state key="normal" title="Artistic"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tv7-HM-oGr">
+                                        <rect key="frame" x="254.5" y="0.0" width="74.5" height="40"/>
+                                        <state key="normal" title="Gradient"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAC-qF-bDM">
+                                        <rect key="frame" x="339" y="0.0" width="75" height="40"/>
+                                        <state key="normal" title="Sketch"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="E8z-rT-JpI"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qj-JR-y5A">
+                                <rect key="frame" x="156" y="789" width="102" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Create Collage"/>
+                                <connections>
+                                    <action selector="navigateToCollage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="znJ-Qy-nvb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg1-TA-QgL">
+                                <rect key="frame" x="360" y="44" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="y6q-xg-vI8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="67Y-ko-GR2"/>
-                            <constraint firstItem="raQ-b3-JSN" firstAttribute="top" secondItem="lJY-pa-eHo" secondAttribute="bottom" constant="49" id="72o-qD-dsv"/>
-                            <constraint firstItem="Z4c-XS-QAs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="FOa-kc-JAb"/>
-                            <constraint firstItem="lJY-pa-eHo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="Qhg-dL-rcQ"/>
+                            <constraint firstItem="raQ-b3-JSN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="F50-o7-Uce"/>
+                            <constraint firstItem="6BH-nA-m12" firstAttribute="top" secondItem="lJY-pa-eHo" secondAttribute="bottom" id="JEz-m8-JXg"/>
+                            <constraint firstItem="lJY-pa-eHo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.5" id="JOf-jA-JeC"/>
                             <constraint firstItem="lJY-pa-eHo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rly-TG-hnR"/>
-                            <constraint firstItem="Z4c-XS-QAs" firstAttribute="top" secondItem="lJY-pa-eHo" secondAttribute="bottom" constant="49" id="ep2-KS-qwg"/>
-                            <constraint firstItem="raQ-b3-JSN" firstAttribute="leading" secondItem="Z4c-XS-QAs" secondAttribute="trailing" constant="88" id="fZn-3A-PTy"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lJY-pa-eHo" secondAttribute="trailing" id="gex-rA-B26"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yg1-TA-QgL" secondAttribute="trailing" constant="50" id="sPl-Id-BJn"/>
-                            <constraint firstItem="y6q-xg-vI8" firstAttribute="top" secondItem="raQ-b3-JSN" secondAttribute="bottom" constant="37" id="uyq-sd-670"/>
+                            <constraint firstItem="yg1-TA-QgL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SSR-HZ-rUa"/>
+                            <constraint firstItem="6BH-nA-m12" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dCv-5f-ROx"/>
+                            <constraint firstItem="lJY-pa-eHo" firstAttribute="top" secondItem="raQ-b3-JSN" secondAttribute="bottom" constant="30" id="dgC-da-cRP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yg1-TA-QgL" secondAttribute="trailing" constant="20" id="fbz-KK-eFf"/>
+                            <constraint firstItem="y6q-xg-vI8" firstAttribute="top" secondItem="6BH-nA-m12" secondAttribute="bottom" id="goA-be-bgP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6BH-nA-m12" secondAttribute="trailing" id="jZr-Xg-VzU"/>
+                            <constraint firstAttribute="trailing" secondItem="lJY-pa-eHo" secondAttribute="trailing" id="pmi-Tx-dcw"/>
+                            <constraint firstItem="raQ-b3-JSN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="wNh-fd-g8a"/>
                             <constraint firstItem="y6q-xg-vI8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wpc-lZ-vfm"/>
-                            <constraint firstItem="yg1-TA-QgL" firstAttribute="top" secondItem="lJY-pa-eHo" secondAttribute="bottom" constant="49" id="yIU-Bu-TXq"/>
                         </constraints>
                     </view>
                     <connections>

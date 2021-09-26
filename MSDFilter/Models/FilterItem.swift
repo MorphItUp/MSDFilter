@@ -33,11 +33,12 @@ extension FilterItem {
     
     public static func identity() -> [FilterProtocol] {
         var items: [FilterProtocol] = []
-        items = [FilterFactory.createFilter(filter: .monochrome),
+        items = [FilterFactory.createFilter(filter: .original),
+                 FilterFactory.createFilter(filter: .monochrome),
                  FilterFactory.createFilter(filter: .polkaDot),
                  FilterFactory.createFilter(filter: .sepiaTone),
                  FilterFactory.createFilter(filter: .sketch),
-                 FilterFactory.createFilter(filter: .vignette) ]
+                 FilterFactory.createFilter(filter: .haze) ]
         return items
     }
     
