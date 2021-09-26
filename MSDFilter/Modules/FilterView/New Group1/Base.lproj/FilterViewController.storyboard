@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Filter View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="FilterViewController" id="BYZ-38-t0r" customClass="FilterViewController" customModule="MSDFilter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountains" translatesAutoresizingMaskIntoConstraints="NO" id="lJY-pa-eHo">
+                                <rect key="frame" x="0.0" y="244" width="414" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="jRg-nK-t7T"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z4c-XS-QAs">
+                                <rect key="frame" x="50" y="543" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="applyFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UBE-rd-w5j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raQ-b3-JSN">
+                                <rect key="frame" x="184" y="543" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yg1-TA-QgL">
+                                <rect key="frame" x="318" y="543" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6q-xg-vI8" customClass="FilterScrollableView" customModule="MSDFilter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="610" width="414" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="DCI-RU-Q3v"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="y6q-xg-vI8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="67Y-ko-GR2"/>
+                            <constraint firstItem="raQ-b3-JSN" firstAttribute="top" secondItem="lJY-pa-eHo" secondAttribute="bottom" constant="49" id="72o-qD-dsv"/>
+                            <constraint firstItem="Z4c-XS-QAs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="FOa-kc-JAb"/>
+                            <constraint firstItem="lJY-pa-eHo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="Qhg-dL-rcQ"/>
+                            <constraint firstItem="lJY-pa-eHo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Rly-TG-hnR"/>
+                            <constraint firstItem="Z4c-XS-QAs" firstAttribute="top" secondItem="lJY-pa-eHo" secondAttribute="bottom" constant="49" id="ep2-KS-qwg"/>
+                            <constraint firstItem="raQ-b3-JSN" firstAttribute="leading" secondItem="Z4c-XS-QAs" secondAttribute="trailing" constant="88" id="fZn-3A-PTy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lJY-pa-eHo" secondAttribute="trailing" id="gex-rA-B26"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yg1-TA-QgL" secondAttribute="trailing" constant="50" id="sPl-Id-BJn"/>
+                            <constraint firstItem="y6q-xg-vI8" firstAttribute="top" secondItem="raQ-b3-JSN" secondAttribute="bottom" constant="37" id="uyq-sd-670"/>
+                            <constraint firstItem="y6q-xg-vI8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wpc-lZ-vfm"/>
+                            <constraint firstItem="yg1-TA-QgL" firstAttribute="top" secondItem="lJY-pa-eHo" secondAttribute="bottom" constant="49" id="yIU-Bu-TXq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="lJY-pa-eHo" id="732-TS-Wjz"/>
+                        <outlet property="scrollableFilterView" destination="y6q-xg-vI8" id="tzJ-7v-Zlw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="93.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mountains" width="4032" height="3024"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

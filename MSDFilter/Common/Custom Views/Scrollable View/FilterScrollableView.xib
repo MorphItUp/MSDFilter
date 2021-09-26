@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="filterCell" id="kDc-jM-iYF" customClass="FilterCollectionViewCell" customModule="MSDFilter" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="80" height="111"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5XW-Gj-8lY">
+                <rect key="frame" x="0.0" y="0.0" width="80" height="111"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qql-Ts-etA">
+                        <rect key="frame" x="10" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="Qql-Ts-etA" secondAttribute="height" multiplier="1:1" id="RUF-SB-xox"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="vJJ-Y7-hT1">
+                        <rect key="frame" x="5" y="80" width="70" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.13" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Qql-Ts-etA" secondAttribute="trailing" constant="10" id="9dU-I0-nz9"/>
+                    <constraint firstItem="Qql-Ts-etA" firstAttribute="top" secondItem="5XW-Gj-8lY" secondAttribute="top" constant="10" id="Myr-9h-O6a"/>
+                    <constraint firstItem="vJJ-Y7-hT1" firstAttribute="centerX" secondItem="Qql-Ts-etA" secondAttribute="centerX" id="RkC-AD-qST"/>
+                    <constraint firstAttribute="trailing" secondItem="vJJ-Y7-hT1" secondAttribute="trailing" constant="5" id="csO-zd-f2y"/>
+                    <constraint firstItem="vJJ-Y7-hT1" firstAttribute="top" secondItem="Qql-Ts-etA" secondAttribute="bottom" constant="10" id="mFX-mf-RDX"/>
+                    <constraint firstItem="Qql-Ts-etA" firstAttribute="leading" secondItem="5XW-Gj-8lY" secondAttribute="leading" constant="10" id="vVd-NK-Y0s"/>
+                    <constraint firstItem="vJJ-Y7-hT1" firstAttribute="leading" secondItem="5XW-Gj-8lY" secondAttribute="leading" constant="5" id="wfM-dH-KH4"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="80" height="111"/>
+            <connections>
+                <outlet property="filterName" destination="vJJ-Y7-hT1" id="6X5-EJ-XC3"/>
+                <outlet property="imageView" destination="Qql-Ts-etA" id="dH9-ej-1NF"/>
+            </connections>
+            <point key="canvasLocation" x="207.24637681159422" y="126.22767857142857"/>
+        </collectionViewCell>
+    </objects>
+</document>
