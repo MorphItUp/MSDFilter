@@ -41,7 +41,8 @@ class FilterViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func navigateToCollage(_ sender: Any) {
-        
+        let collageVC = CollageViewController.initFromStoryboard(storyboard: .collage)
+        navigationController?.pushViewController(collageVC, animated: true)
     }
     
     
