@@ -97,6 +97,11 @@
                     <connections>
                         <outlet property="imageView" destination="lJY-pa-eHo" id="732-TS-Wjz"/>
                         <outlet property="scrollableFilterView" destination="y6q-xg-vI8" id="tzJ-7v-Zlw"/>
+                        <outletCollection property="filterCategories" destination="SQb-qP-acy" collectionClass="NSMutableArray" id="NqR-Y0-Ehg"/>
+                        <outletCollection property="filterCategories" destination="a3w-r0-luS" collectionClass="NSMutableArray" id="nci-Bh-odp"/>
+                        <outletCollection property="filterCategories" destination="Uci-9E-GBw" collectionClass="NSMutableArray" id="hjy-0n-zqR"/>
+                        <outletCollection property="filterCategories" destination="Tv7-HM-oGr" collectionClass="NSMutableArray" id="gif-Xn-4xe"/>
+                        <outletCollection property="filterCategories" destination="YAC-qF-bDM" collectionClass="NSMutableArray" id="pmN-57-Tuc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

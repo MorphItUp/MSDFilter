@@ -22,9 +22,9 @@
                             <constraint firstAttribute="width" secondItem="Qql-Ts-etA" secondAttribute="height" multiplier="1:1" id="RUF-SB-xox"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="vJJ-Y7-hT1">
-                        <rect key="frame" x="5" y="80" width="70" height="13.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="vJJ-Y7-hT1">
+                        <rect key="frame" x="4" y="80" width="72" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.13" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -33,10 +33,10 @@
                     <constraint firstAttribute="trailing" secondItem="Qql-Ts-etA" secondAttribute="trailing" constant="10" id="9dU-I0-nz9"/>
                     <constraint firstItem="Qql-Ts-etA" firstAttribute="top" secondItem="5XW-Gj-8lY" secondAttribute="top" constant="10" id="Myr-9h-O6a"/>
                     <constraint firstItem="vJJ-Y7-hT1" firstAttribute="centerX" secondItem="Qql-Ts-etA" secondAttribute="centerX" id="RkC-AD-qST"/>
-                    <constraint firstAttribute="trailing" secondItem="vJJ-Y7-hT1" secondAttribute="trailing" constant="5" id="csO-zd-f2y"/>
+                    <constraint firstAttribute="trailing" secondItem="vJJ-Y7-hT1" secondAttribute="trailing" constant="4" id="csO-zd-f2y"/>
                     <constraint firstItem="vJJ-Y7-hT1" firstAttribute="top" secondItem="Qql-Ts-etA" secondAttribute="bottom" constant="10" id="mFX-mf-RDX"/>
                     <constraint firstItem="Qql-Ts-etA" firstAttribute="leading" secondItem="5XW-Gj-8lY" secondAttribute="leading" constant="10" id="vVd-NK-Y0s"/>
-                    <constraint firstItem="vJJ-Y7-hT1" firstAttribute="leading" secondItem="5XW-Gj-8lY" secondAttribute="leading" constant="5" id="wfM-dH-KH4"/>
+                    <constraint firstItem="vJJ-Y7-hT1" firstAttribute="leading" secondItem="5XW-Gj-8lY" secondAttribute="leading" constant="4" id="wfM-dH-KH4"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="80" height="111"/>

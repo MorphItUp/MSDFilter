@@ -25,29 +25,123 @@ class FilterFactory {
         
         switch filter {
         case .original:
-            return FilterItem(filterImage: image, filterName: "Original")
+            return FilterItemViewModel(filterImage: image, filterName: "Original")
         case .sepiaTone:
             let sepiaToneFilter = SepiaToneFilter()
             let filteredImage = image.filterWithOperation(sepiaToneFilter)
-            return FilterItem(filterImage: filteredImage, filterName: "SepiaTone")
+            return FilterItemViewModel(filterImage: filteredImage, filterName: "SepiaTone")
         case .sketch:
             let sketchFilter = SketchFilter()
             sketchFilter.edgeStrength = 12
             let filteredImage = image.filterWithOperation(sketchFilter)
-            return FilterItem(filterImage: filteredImage, filterName: "Sketch")
+            return FilterItemViewModel(filterImage: filteredImage, filterName: "Sketch")
         case .monochrome:
             let monochromeFilter = MonochromeFilter()
             let filteredImage = image.filterWithOperation(monochromeFilter)
-            return FilterItem(filterImage: filteredImage, filterName: "Monochrome")
+            return FilterItemViewModel(filterImage: filteredImage, filterName: "Monochrome")
         case .polkaDot:
             let polkaDotFilter = PolkaDot()
             let filteredImage = image.filterWithOperation(polkaDotFilter)
-            return FilterItem(filterImage: filteredImage, filterName: "Polka Dot")
+            return FilterItemViewModel(filterImage: filteredImage, filterName: "Polka Dot")
         case .haze:
             let haze = Haze()
             let filteredImage = image.filterWithOperation(haze)
-            return FilterItem(filterImage: filteredImage, filterName: "Haze")
+            return FilterItemViewModel(filterImage: filteredImage, filterName: "Haze")
+            
+        }
         
+    }
+    
+    static func createTrendyFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        var filterArray: [FilterProtocol] = []
+        
+        let image = UIImage(named: "mountains")!
+        
+        let sepiaToneFilter = SepiaToneFilter()
+        let sketchFilter = SketchFilter()
+        let monochromeFilter = MonochromeFilter()
+        let polkaDotFilter = PolkaDot()
+        let haze = Haze()
+        
+        DispatchQueue.global().async {
+            filterArray = [FilterItemViewModel(filterImage: image, filterName: "Original"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(sepiaToneFilter), filterName: "SepiaTone"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(sketchFilter), filterName: "Sketch"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(monochromeFilter), filterName: "Monochrome"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(polkaDotFilter), filterName: "Polka Dot"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(haze), filterName: "Haze")]
+            completion(filterArray)
+        }
+        
+    }
+    
+    static func createColorFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        var filterArray: [FilterProtocol] = []
+        
+        let image = UIImage(named: "mountains")!
+        let colorMatrixFilter = ColorMatrixFilter()
+        let toonFilter = ToonFilter()
+        let colorSpacefilter = CGAColorspaceFilter()
+        DispatchQueue.global().async {
+            filterArray = [FilterItemViewModel(filterImage: image.filterWithOperation(colorMatrixFilter), filterName: "Color Matrix"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(toonFilter), filterName: "Toon Filter"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(colorSpacefilter), filterName: "Color Space")]
+            completion(filterArray)
+            
+        }
+        
+    }
+    
+    static func createArtisticFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        var filterArray: [FilterProtocol] = []
+        let image = UIImage(named: "mountains")!
+        
+        let vibranceFilter = Vibrance()
+        let hazeFilter = Haze()
+        hazeFilter.distance = 0.1
+        let blurFilter = iOSBlur()
+        DispatchQueue.global().async {
+            filterArray = [FilterItemViewModel(filterImage: image.filterWithOperation(vibranceFilter), filterName: "Vibrance"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(hazeFilter), filterName: "Haze Filter"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(blurFilter), filterName: "Blur Filter")]
+            completion(filterArray)
+        }
+    }
+    
+    static func createGradientFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        var filterArray: [FilterProtocol] = []
+        let image = UIImage(named: "mountains")!
+        
+        let contrast = ContrastAdjustment()
+        contrast.contrast = 2
+        let saturation = SaturationAdjustment()
+        saturation.saturation = 2
+        
+        DispatchQueue.global().async {
+            filterArray = [FilterItemViewModel(filterImage: image.filterWithOperation(contrast), filterName: "Contrast"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(saturation), filterName: "Saturation")
+            ]
+            completion(filterArray)
+        }
+        
+        
+    }
+    
+    static func createSketchFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        
+        var filterArray: [FilterProtocol] = []
+        let image = UIImage(named: "mountains")!
+        
+        let sketchFilter = SketchFilter()
+        sketchFilter.edgeStrength = 1
+        let edgySketchFilter = SketchFilter()
+        sketchFilter.edgeStrength = 15
+        
+        DispatchQueue.global().async {
+            filterArray = [FilterItemViewModel(filterImage: image.filterWithOperation(sketchFilter), filterName: "Sketch Filter"),
+                           FilterItemViewModel(filterImage: image.filterWithOperation(edgySketchFilter), filterName: "Edgy Sketch")
+            ]
+            completion(filterArray)
         }
         
     }
