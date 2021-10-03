@@ -10,16 +10,24 @@ import UIKit
 // MARK: - Filter Protocol
 
 protocol FilterProtocol {
-    var image: UIImage { get }
-    var name: String { get }
+    var image: UIImage! { get }
+    var name: String! { get }
 }
 
 class FilterItemViewModel: FilterProtocol {
     
+    // MARK: - Private Properties
+    
+    private var trendyFilterArray: [FilterProtocol] = []
+    private var colorFilterArray: [FilterProtocol] = []
+    private var artisticFilterArray: [FilterProtocol] = []
+    private var gradientFilterArray: [FilterProtocol] = []
+    private var sketchFilterArray: [FilterProtocol] = []
+    
     // MARK: - Properties
     
-    var image: UIImage
-    var name: String
+    var image: UIImage!
+    var name: String!
     
     // MARK: - Init
     
@@ -27,6 +35,8 @@ class FilterItemViewModel: FilterProtocol {
         self.name = filterName
         self.image = filterImage
     }
+    
+    init() {}
 }
 
 extension FilterItemViewModel {
@@ -42,32 +52,43 @@ extension FilterItemViewModel {
         return items
     }
     
-    public static func trendyFilters(completion: @escaping ([FilterProtocol]) -> ()) {
-        return FilterFactory.createTrendyFilters{ filters in
+    public func trendyFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        guard self.trendyFilterArray.isEmpty else { return completion(trendyFilterArray) }
+        FilterFactory.createTrendyFilters { filters in
+            self.trendyFilterArray = filters
+            completion(filters)
+        }
+        
+    }
+    
+    public func colorFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        guard self.colorFilterArray.isEmpty else { return completion(colorFilterArray) }
+        return FilterFactory.createColorFilters { filters in
+            self.colorFilterArray = filters
             completion(filters)
         }
     }
     
-    public static func colorFilters(completion: @escaping ([FilterProtocol]) -> ()) {
-        return FilterFactory.createColorFilters{ filters in
+    public func artisticFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        guard self.artisticFilterArray.isEmpty else { return completion(artisticFilterArray) }
+        return FilterFactory.createArtisticFilters { filters in
+            self.artisticFilterArray = filters
             completion(filters)
         }
     }
     
-    public static func artisticFilters(completion: @escaping ([FilterProtocol]) -> ()) {
-        return FilterFactory.createArtisticFilters{ filters in
+    public func gradientFilters(completion: @escaping ([FilterProtocol]) -> ()) {
+        guard self.gradientFilterArray.isEmpty else { return completion(gradientFilterArray) }
+        return FilterFactory.createGradientFilters { filters in
+            self.gradientFilterArray = filters
             completion(filters)
         }
     }
     
-    public static func gradientFilters(completion: @escaping ([FilterProtocol]) -> ()) {
-        return FilterFactory.createGradientFilters{ filters in
-            completion(filters)
-        }
-    }
-    
-    public static func sketchFilter(completion: @escaping ([FilterProtocol]) -> ()) {
-        FilterFactory.createSketchFilters { filters in
+    public func sketchFilter(completion: @escaping ([FilterProtocol]) -> ()) {
+        guard self.sketchFilterArray.isEmpty else { return completion(sketchFilterArray) }
+        return FilterFactory.createSketchFilters { filters in
+            self.sketchFilterArray = filters
             completion(filters)
         }
         

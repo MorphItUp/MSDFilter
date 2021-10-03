@@ -23,7 +23,9 @@ class FilterViewController: UIViewController {
     @IBOutlet weak private var scrollableFilterView: FilterScrollableView!
     @IBOutlet var filterCategories: [UIButton]!
     
-    var tagNumber = 0
+    private var tagNumber = 0
+    private var filterItemViewModel = FilterItemViewModel()
+    private var operationQueue = OperationQueue()
     
     // MARK: - View Lifecycle
     
@@ -32,7 +34,6 @@ class FilterViewController: UIViewController {
         initScrollView()
         updateViewContent()
         setupViews()
-        
     }
     
     // MARK: - Private Methods
@@ -47,7 +48,11 @@ class FilterViewController: UIViewController {
     }
     
     private func initScrollView() {
-        scrollableFilterView.items = FilterItemViewModel.identity()
+        filterItemViewModel.trendyFilters { filters in
+            DispatchQueue.main.async {
+                self.scrollableFilterView.items = filters
+            }
+        }
     }
     
     private func updateViewContent() {
@@ -63,38 +68,56 @@ class FilterViewController: UIViewController {
     
     @objc func pressed(sender: UIButton!) {
         let filterType = FilterCategory(rawValue: sender.tag)
+        
+        operationQueue.cancelAllOperations()
+        
         switch filterType {
         case .trendy:
-            FilterItemViewModel.trendyFilters { filters in
-                self.scrollableFilterView.items = filters
+            
+            operationQueue.addOperation {
+                self.filterItemViewModel.trendyFilters { filters in
+                    DispatchQueue.main.async {
+                        self.scrollableFilterView.items = filters
+                    }
+                }
             }
         case .color:
-            
-            FilterItemViewModel.colorFilters { filters in
-                DispatchQueue.main.async {
-                    self.scrollableFilterView.items = filters
+            operationQueue.addOperation {
+                self.filterItemViewModel.colorFilters { filters in
+                    DispatchQueue.main.async {
+                        self.scrollableFilterView.items = filters
+                    }
                 }
             }
             
         case .artistic:
-            FilterItemViewModel.artisticFilters { filters in
-                DispatchQueue.main.async {
-                    self.scrollableFilterView.items = filters
+            operationQueue.addOperation {
+                self.filterItemViewModel.artisticFilters { filters in
+                    DispatchQueue.main.async {
+                        self.scrollableFilterView.items = filters
+                    }
                 }
             }
             
         case .gradient:
-            FilterItemViewModel.gradientFilters { filters in
-                DispatchQueue.main.async {
-                    self.scrollableFilterView.items = filters
+            
+            operationQueue.addOperation {
+                self.filterItemViewModel.gradientFilters { filters in
+                    DispatchQueue.main.async {
+                        self.scrollableFilterView.items = filters
+                    }
                 }
             }
+            
         case .sketch:
-            FilterItemViewModel.sketchFilter(completion: { filters in
-                DispatchQueue.main.async {
-                    self.scrollableFilterView.items = filters
+            operationQueue.addOperation {
+                self.filterItemViewModel.sketchFilter { filters in
+                    DispatchQueue.main.async {
+                        self.scrollableFilterView.items = filters
+                    }
                 }
-            })
+            }
+            
         default:
             break
         }
